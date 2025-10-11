@@ -1,3 +1,3 @@
-Delta é negativo - não existe raiz real
+Delta é positivo - existem duas raízes reais: 10.099871021570873 e -0.012914499831742145
 
 Olá, tudo bem?
