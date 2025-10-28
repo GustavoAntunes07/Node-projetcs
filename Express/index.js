@@ -9,19 +9,18 @@ connectDB();
 
 const app = express();
 app.use(express.json());
-app.get("/users", (req, res) => {
-  const users = [
-    {
-      name: "Gustavo",
-      email: "example@email.com",
-    },
-    {
-      name: "Maria",
-      email: "example2@email.com",
-    },
-  ];
-  res.json(users);
+
+// Method GET to fetch all users
+app.get("/users", async (req, res) => {
+  try {
+    const users = await UserModel.find({}); // {} = filter
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch users" });
+  }
 });
+
+app.get("/users/:id", async (req, res) => {});
 
 // Method POST to create a new user
 app.post("/users", async (req, res) => {
